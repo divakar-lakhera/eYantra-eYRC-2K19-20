@@ -2,13 +2,12 @@ import cv2 as cv
 import os
 import numpy as np
 import csv
-# Code Written By Divakar Lakhera
+
 def _doTaskA(files):
     data=[]
     for i in files:
         img = cv.imread('../Images/' + i)
-        # img is a 3d numpy array with dimensions width * height * channels
-        # npArray.shape gives dimensions in form of list
+
         details=img.shape
         intc1 = img[int(details[0]/2)][int(details[1]/2)][0]
         intc2 = img[int(details[0]/2)][int(details[1]/2)][1]
@@ -20,7 +19,7 @@ def _doTaskA(files):
 
 def _doTaskB():
     img=cv.imread('../Images/cat.jpg')
-    #Clear B G channels of BGR
+
     img[:,:,0:2]=[0]
     cv.imwrite('../Generated/cat_red.jpg',img)
 
@@ -42,7 +41,7 @@ def _doTaskD():
     cv.imwrite('../Generated/horse_gray.jpg', finalp)
 
 
-# Perform Directory Traversal Get All files In Images/ directory
+
 files=os.listdir('../Images/')
 _doTaskA(files)
 _doTaskB()
